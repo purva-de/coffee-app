@@ -742,7 +742,6 @@ img, video {
 .section-story,
 .section-calculator,
 .section-subscription,
-.section-reviews,
 .section-pickup,
 .section-faq,
 .section-newsletter {
@@ -1377,71 +1376,6 @@ img, video {
   color: var(--accent-gold);
 }
 
-/* --------------------------------------------------------------------------
-   13. SECTION 6: CUSTOMER REVIEWS
-   -------------------------------------------------------------------------- */
-.reviews-slider-track {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
-.review-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: var(--space-2);
-}
-
-.review-stars {
-  color: #f59e0b;
-  font-size: 1rem;
-  margin-bottom: var(--space-1);
-  letter-spacing: 2px;
-}
-
-.review-quote {
-  font-size: 0.88rem;
-  line-height: 1.45;
-  color: var(--text-primary);
-  font-style: italic;
-  margin-bottom: var(--space-2);
-}
-
-.reviewer-meta {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-}
-
-.reviewer-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-full);
-  background: var(--accent-gold);
-  color: var(--text-inverted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.75rem;
-}
-
-.reviewer-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.reviewer-name {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.reviewer-status {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-}
 
 /* --------------------------------------------------------------------------
    14. SECTION 7: PICKUP LOCATIONS
