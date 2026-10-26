@@ -24,7 +24,7 @@
     products: {
       'midnight-velvet': {
         name: 'Midnight Velvet Dark Roast',
-        price: 18.50,
+        price: 549,
         img: 'assets/coffee_dark_roast.jpg',
         category: 'dark',
         intensity: '9/10',
@@ -35,7 +35,7 @@
       },
       'golden-dawn': {
         name: 'Golden Dawn Medium Roast',
-        price: 17.00,
+        price: 499,
         img: 'assets/coffee_medium_roast.jpg',
         category: 'medium',
         intensity: '6/10',
@@ -46,7 +46,7 @@
       },
       'rocket-fuel': {
         name: 'Rocket Fuel Espresso Blend',
-        price: 19.00,
+        price: 599,
         img: 'assets/coffee_espresso.jpg',
         category: 'espresso',
         intensity: '10/10',
@@ -57,7 +57,7 @@
       },
       'nitro-silk': {
         name: 'Nitro Silk Cold Brew',
-        price: 16.50,
+        price: 449,
         img: 'assets/coffee_cold_brew.jpg',
         category: 'coldbrew',
         intensity: '7/10',
@@ -69,31 +69,10 @@
     }
   };
 
-  // --- CHAPTER MOMENTS IN VIDEO ---
-  const chapters = [
-    { time: 0, title: 'Fuel Your Day • Intro' },
-    { time: 2, title: 'Rocket Fuel • The Daily Grind' },
-    { time: 3.5, title: 'Rich & Bold • Crema Extraction' },
-    { time: 5.5, title: 'Premium Beans • Sourced Ethically' },
-    { time: 7, title: 'Expert Roast • Small-Batch Mastery' }
-  ];
-
   // --- DOM ELEMENTS ---
   const html = document.documentElement;
   const progressBar = document.getElementById('scroll-progress-bar');
   const heroVideo = document.getElementById('coffee-reel-video');
-  const scrubberTrack = document.getElementById('video-scrubber-track');
-  const scrubberFill = document.getElementById('video-timeline-bar');
-  const playPauseBtn = document.getElementById('video-play-pause-btn');
-  const audioToggleBtn = document.getElementById('video-audio-toggle-btn');
-  const chapterLabel = document.getElementById('video-chapter-label');
-  const jumpPills = document.querySelectorAll('.jump-pill');
-
-  const pipContainer = document.getElementById('pip-mini-video-player');
-  const pipVideo = document.getElementById('pip-video');
-  const pipAudioBtn = document.getElementById('pip-audio-btn');
-  const pipJumpHeroBtn = document.getElementById('pip-jump-hero-btn');
-  const pipCloseBtn = document.getElementById('pip-close-btn');
 
   const themeToggleBtn = document.getElementById('theme-toggle-btn');
   const mobileNavToggle = document.getElementById('mobile-nav-toggle');
@@ -140,7 +119,6 @@
     initReducedMotion();
     initScrollProgress();
     initVideoControls();
-    initPictureInPicture();
     initRoastFilters();
     initBrewCalculator();
     initCart();
@@ -198,116 +176,15 @@
     }, { passive: true });
   }
 
-  // --- VIDEO CONTROLS & CHAPTERS ---
+  // --- VIDEO AUTOPLAY & CONTROLS ---
   function initVideoControls() {
     if (!heroVideo) return;
-
-    // Timeline timeupdate
-    heroVideo.addEventListener('timeupdate', () => {
-      if (heroVideo.duration) {
-        updateActiveChapter(heroVideo.currentTime);
-      }
+    // Strict muted playback with no audio
+    heroVideo.muted = true;
+    heroVideo.defaultMuted = true;
+    heroVideo.play().catch(() => {
+      // Autoplay fallback
     });
-
-
-
-    // Audio unmute toggle
-    if (audioToggleBtn) {
-      const mutedIcon = audioToggleBtn.querySelector('.icon-muted');
-      const unmutedIcon = audioToggleBtn.querySelector('.icon-unmuted');
-
-      audioToggleBtn.addEventListener('click', () => {
-        heroVideo.muted = !heroVideo.muted;
-        if (heroVideo.muted) {
-          if (mutedIcon) mutedIcon.style.display = 'block';
-          if (unmutedIcon) unmutedIcon.style.display = 'none';
-          audioToggleBtn.setAttribute('aria-label', 'Unmute audio');
-          showToast('Video audio muted');
-        } else {
-          if (mutedIcon) mutedIcon.style.display = 'none';
-          if (unmutedIcon) unmutedIcon.style.display = 'block';
-          audioToggleBtn.setAttribute('aria-label', 'Mute audio');
-          showToast('Sound enabled 🎵');
-        }
-      });
-    }
-
-    // Jump Pills / Chapter buttons
-    jumpPills.forEach((pill) => {
-      pill.addEventListener('click', () => {
-        const time = parseFloat(pill.getAttribute('data-time'));
-        heroVideo.currentTime = time;
-        if (heroVideo.paused) heroVideo.play();
-        jumpPills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
-        showToast(`Jumped to: ${pill.textContent.trim()}`);
-      });
-    });
-  }
-
-  function updateActiveChapter(currentTime) {
-    let currentChapter = chapters[0];
-    for (let i = 0; i < chapters.length; i++) {
-      if (currentTime >= chapters[i].time) {
-        currentChapter = chapters[i];
-        // Sync jump pill
-        jumpPills.forEach((pill, idx) => {
-          if (idx === i) pill.classList.add('active');
-          else pill.classList.remove('active');
-        });
-      }
-    }
-    if (chapterLabel && chapterLabel.textContent !== currentChapter.title) {
-      chapterLabel.textContent = currentChapter.title;
-    }
-  }
-
-  // --- FLOATING PICTURE-IN-PICTURE (PIP) ---
-  function initPictureInPicture() {
-    if (!heroVideo || !pipContainer || !pipVideo) return;
-
-    let pipDismissed = false;
-
-    // Sync play state
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting && !pipDismissed) {
-          // Hero is out of view, show mini player
-          pipContainer.hidden = false;
-          pipVideo.currentTime = heroVideo.currentTime;
-          pipVideo.muted = heroVideo.muted;
-          pipVideo.play().catch(() => {});
-        } else {
-          pipContainer.hidden = true;
-          pipVideo.pause();
-        }
-      });
-    }, { threshold: 0.15 });
-
-    observer.observe(heroVideo);
-
-    if (pipAudioBtn) {
-      pipAudioBtn.addEventListener('click', () => {
-        pipVideo.muted = !pipVideo.muted;
-        heroVideo.muted = pipVideo.muted;
-        showToast(pipVideo.muted ? 'Mini player muted' : 'Mini player sound on 🎵');
-      });
-    }
-
-    if (pipJumpHeroBtn) {
-      pipJumpHeroBtn.addEventListener('click', () => {
-        heroVideo.scrollIntoView({ behavior: 'smooth' });
-      });
-    }
-
-    if (pipCloseBtn) {
-      pipCloseBtn.addEventListener('click', () => {
-        pipContainer.hidden = true;
-        pipVideo.pause();
-        pipDismissed = true;
-        showToast('Mini video player dismissed');
-      });
-    }
   }
 
   // --- ROAST CATALOG FILTERS ---
@@ -484,7 +361,7 @@
         addToCart({
           id: 'fuel-club-sub',
           name: 'Fuel Club Coffee Membership (Save 15%)',
-          price: 15.70,
+          price: 449,
           img: 'assets/coffee_dark_roast.jpg',
           grind: `Roaster's Choice (${freq === '2weeks' ? 'Bi-Weekly' : 'Monthly'})`
         });
@@ -559,7 +436,7 @@
       else stickyCartDot.classList.remove('show');
     }
     if (stickyCartLabel) {
-      stickyCartLabel.textContent = `Bag ($${finalTotal.toFixed(2)})`;
+      stickyCartLabel.textContent = `Bag (₹${Math.round(finalTotal)})`;
     }
 
     const drawerCount = document.getElementById('drawer-item-count');
@@ -569,8 +446,8 @@
       checkoutBtn.disabled = totalItems === 0;
     }
 
-    // Free Shipping Meter ($35 threshold)
-    const shippingThreshold = 35.00;
+    // Free Shipping Meter (₹799 threshold)
+    const shippingThreshold = 799;
     const percent = Math.min(100, Math.round((subtotal / shippingThreshold) * 100));
     if (shippingProgressBar) shippingProgressBar.style.width = `${percent}%`;
     if (shippingPercentText) shippingPercentText.textContent = `${percent}%`;
@@ -578,22 +455,22 @@
       if (subtotal >= shippingThreshold) {
         shippingPromptText.textContent = '🎉 You qualify for FREE Roastery Shipping!';
       } else {
-        const remaining = (shippingThreshold - subtotal).toFixed(2);
-        shippingPromptText.textContent = `Add $${remaining} for FREE Roastery Shipping`;
+        const remaining = Math.round(shippingThreshold - subtotal);
+        shippingPromptText.textContent = `Add ₹${remaining} for FREE Roastery Shipping`;
       }
     }
 
     // Subtotal and Total
-    if (cartSubtotalVal) cartSubtotalVal.textContent = `$${subtotal.toFixed(2)}`;
+    if (cartSubtotalVal) cartSubtotalVal.textContent = `₹${Math.round(subtotal)}`;
     if (discountRow && cartDiscountVal) {
       if (discount > 0) {
         discountRow.style.display = 'flex';
-        cartDiscountVal.textContent = `-$${discount.toFixed(2)}`;
+        cartDiscountVal.textContent = `-₹${Math.round(discount)}`;
       } else {
         discountRow.style.display = 'none';
       }
     }
-    if (cartTotalVal) cartTotalVal.textContent = `$${finalTotal.toFixed(2)}`;
+    if (cartTotalVal) cartTotalVal.textContent = `₹${Math.round(finalTotal)}`;
 
     // Render items list
     if (cartItemsContainer) {
@@ -620,7 +497,7 @@
                 <p class="cart-item-grind">${item.grind}</p>
               </div>
               <div class="cart-item-bottom">
-                <span class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</span>
+                <span class="cart-item-price">₹${Math.round(item.price * item.quantity)}</span>
                 <div class="quantity-control" aria-label="Change item quantity">
                   <button type="button" class="qty-btn btn-qty-minus" data-index="${idx}" aria-label="Decrease quantity">−</button>
                   <span class="qty-num">${item.quantity}</span>
@@ -684,7 +561,7 @@
               <span style="font-size:0.8rem; color:var(--accent-gold); font-weight:700;">Intensity: ${prod.intensity}</span>
             </div>
             <h2 id="modal-product-title" style="font-family:var(--font-display); font-size:1.4rem; color:var(--text-primary); margin-bottom:var(--space-0-5);">${prod.name}</h2>
-            <div style="font-size:1.2rem; font-weight:800; color:var(--accent-gold); margin-bottom:var(--space-1);">$${prod.price.toFixed(2)}</div>
+            <div style="font-size:1.2rem; font-weight:800; color:var(--accent-gold); margin-bottom:var(--space-1);">₹${prod.price}</div>
             <p style="font-size:0.85rem; line-height:1.5; color:var(--text-secondary); margin-bottom:var(--space-2);">${prod.desc}</p>
             
             <div style="background:var(--bg-surface-elevated); padding:var(--space-1); border-radius:var(--radius-sm); font-size:0.75rem; color:var(--text-secondary); margin-bottom:var(--space-2);">
@@ -693,7 +570,7 @@
             </div>
 
             <button type="button" id="modal-add-cart-btn" class="btn btn-primary btn-full-width">
-              <span>Add to Bag - $${prod.price.toFixed(2)}</span>
+              <span>Add to Bag - ₹${prod.price}</span>
             </button>
           </div>
         `;
@@ -749,13 +626,13 @@
         ${state.cart.map(i => `
           <div style="display:flex; justify-content:space-between;">
             <span>${i.quantity}x ${i.name} (${i.grind})</span>
-            <strong>$${(i.price * i.quantity).toFixed(2)}</strong>
+            <strong>₹${Math.round(i.price * i.quantity)}</strong>
           </div>
         `).join('')}
       </div>
       <div style="border-top:1px solid var(--border-color); padding-top:6px; display:flex; justify-content:space-between; font-weight:800; color:var(--accent-gold);">
         <span>Paid Total:</span>
-        <span>$${finalTotal.toFixed(2)}</span>
+        <span>₹${Math.round(finalTotal)}</span>
       </div>
     `;
 

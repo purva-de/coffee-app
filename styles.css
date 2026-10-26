@@ -320,6 +320,11 @@ img, video {
     border: 8px solid #231b17;
     box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.08);
   }
+
+  .mobile-device-frame.is-mobile-frame .hero-fullscreen {
+    height: calc(100vh - 140px);
+    max-height: 720px;
+  }
 }
 
 
@@ -502,34 +507,46 @@ img, video {
 }
 
 /* --------------------------------------------------------------------------
-   8. SECTION 1: HERO & VIDEO REEL PLAYER
+   8. SECTION 1: HERO FULLSCREEN VIDEO LANDING
    -------------------------------------------------------------------------- */
 .hero-section {
-  padding: var(--space-2);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+  position: relative;
+  width: 100%;
 }
 
-.hero-media-wrapper {
+.hero-fullscreen {
+  position: relative;
   width: 100%;
+  height: calc(100vh - 64px);
+  height: calc(100dvh - 64px);
+  min-height: 520px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-video-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 9 / 13;
-  border-radius: var(--radius-lg);
+  height: 100%;
+  flex: 1;
   overflow: hidden;
   background-color: #000000;
-  border: 1px solid var(--border-color);
-  box-shadow: var(--shadow-md);
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
 }
 
 .hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
 }
 
@@ -538,154 +555,56 @@ img, video {
   inset: 0;
   background: linear-gradient(
     180deg, 
-    rgba(14, 11, 10, 0.25) 0%, 
-    transparent 30%, 
-    transparent 65%, 
-    rgba(14, 11, 10, 0.9) 100%
+    rgba(14, 11, 10, 0.45) 0%, 
+    rgba(14, 11, 10, 0.1) 30%, 
+    rgba(14, 11, 10, 0.35) 60%, 
+    rgba(14, 11, 10, 0.85) 85%,
+    rgba(14, 11, 10, 0.98) 100%
   );
   pointer-events: none;
+  z-index: 2;
 }
 
-.video-floating-tags {
+/* Minimal Text Overlaid Directly on the Video */
+.hero-video-overlay-content {
   position: absolute;
-  top: var(--space-2);
-  left: var(--space-2);
-  display: flex;
-  gap: var(--space-1);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-4) var(--space-3) calc(var(--space-4) + 8px);
   z-index: 10;
-}
-
-.reel-pill {
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 4px var(--space-1);
-  border-radius: var(--radius-full);
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.pulse-dot {
-  width: 7px;
-  height: 7px;
-  background-color: #ef4444;
-  border-radius: 50%;
-  box-shadow: 0 0 6px #ef4444;
-  animation: pulse 1.8s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(0.95); opacity: 0.8; }
-}
-
-/* Top Right Discreet Sound Toggle Button */
-.video-sound-btn {
-  position: absolute;
-  top: var(--space-2);
-  right: var(--space-2);
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-full);
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 20;
-  transition: all var(--transition-fast);
-  cursor: pointer;
-}
-
-.video-sound-btn:hover,
-.video-sound-btn:focus-visible {
-  background: var(--accent-gold);
-  color: #120c08;
-  transform: scale(1.08);
-}
-
-/* Video Keyframe Bookmarks */
-.reel-jump-pills {
-  position: absolute;
-  bottom: var(--space-1);
-  left: var(--space-1);
-  right: var(--space-1);
-  display: flex;
-  gap: 6px;
-  overflow-x: auto;
-  padding: 4px;
-  scrollbar-width: none;
-  z-index: 15;
-}
-
-.reel-jump-pills::-webkit-scrollbar {
-  display: none;
-}
-
-.jump-pill {
-  white-space: nowrap;
-  background: rgba(20, 15, 12, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(224, 169, 109, 0.3);
-  color: var(--text-secondary);
-  font-size: 0.7rem;
-  font-weight: 600;
-  padding: 4px var(--space-1);
-  border-radius: var(--radius-full);
-  transition: all var(--transition-fast);
-}
-
-.jump-pill.active,
-.jump-pill:hover {
-  background: var(--accent-gold);
-  color: #120c08;
-  border-color: var(--accent-gold);
-  font-weight: 700;
-}
-
-/* Hero Content Card */
-.hero-content-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3) var(--space-2);
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  box-shadow: var(--shadow-sm);
+  align-items: flex-start;
+  gap: var(--space-1);
 }
 
-.hero-chip {
+.hero-video-badge {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--badge-bg);
-  color: var(--badge-text);
+  background: rgba(224, 169, 109, 0.2);
+  border: 1px solid rgba(224, 169, 109, 0.45);
+  color: var(--accent-gold);
   font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 1px;
-  padding: 4px var(--space-1);
+  letter-spacing: 2px;
+  padding: 4px 12px;
   border-radius: var(--radius-full);
-  align-self: flex-start;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.hero-title {
+.hero-video-title {
   font-family: var(--font-display);
-  font-size: 1.85rem;
+  font-size: clamp(2.2rem, 8vw, 3rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.05;
   letter-spacing: 0.5px;
-  color: var(--text-primary);
+  color: #ffffff;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.95);
+  margin: 0;
 }
 
 .text-gradient {
@@ -694,16 +613,24 @@ img, video {
   -webkit-text-fill-color: transparent;
 }
 
-.hero-subtitle {
-  font-size: 0.92rem;
-  line-height: 1.5;
-  color: var(--text-secondary);
+.hero-video-tagline {
+  font-size: clamp(0.95rem, 3.5vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.92);
+  margin: 0 0 var(--space-1);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
+  font-weight: 500;
 }
 
-.hero-cta-group {
-  display: flex;
+.hero-video-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: var(--space-1);
-  margin-top: var(--space-1);
+  width: auto;
+  min-width: 180px;
+  padding: var(--space-2) var(--space-4);
+  font-size: 0.95rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), var(--shadow-glow);
 }
 
 /* Primary & Secondary Buttons */
