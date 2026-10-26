@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>COFFEE CO. | Fuel Your Daily Grind | Artisanal Small-Batch Roasts</title>
+  <meta name="description" content="Fuel your daily grind with Coffee Co. Pure, rich, bold artisan coffee, expertly roasted and delivered fresh within 48 hours. Explore single origins, cold brew, and espresso blends.">
+  <meta name="keywords" content="artisan coffee, dark roast, cold brew, espresso beans, fresh roasted coffee, Coffee Co, Fuel Your Day">
+  <meta name="theme-color" content="#0e0b0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CoffeeShop",
+    "name": "Coffee Co.",
+    "description": "Fuel your daily grind with pure, rich, bold artisan coffee roasted fresh in small batches.",
+    "priceRange": "$$",
+    "servesCuisine": "Specialty Coffee, Whole Bean, Cold Brew",
+    "telephone": "+1-800-555-COFF",
+    "openingHours": "Mo-Su 06:00-20:00"
+  }
+  </script>
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div id="scroll-progress-bar" class="scroll-progress-indicator" aria-hidden="true"></div>
+
+  <!-- Screen Reader Live Region -->
+  <div id="a11y-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Desktop Preview Simulator Frame Controls (Visible on large screens) -->
+  <div class="desktop-view-banner" id="device-view-switcher">
+    <div class="view-switcher-inner">
+      <span class="preview-tag">📱 Mobile Experience Preview</span>
+      <div class="preview-actions">
+        <button type="button" id="toggle-frame-mode" class="preview-btn" aria-label="Toggle Mobile Device Frame view">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+          <span id="frame-mode-text">Switch to Full View</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Viewport Wrapper (Can simulate an iPhone or expand to 100% responsive fluid) -->
+  <div id="mobile-viewport" class="mobile-device-frame is-mobile-frame">
+    
+
+
+    <!-- Main Semantic Header -->
+    <header class="site-header" id="site-header">
+      <div class="header-container">
+        <!-- Brand Logo -->
+        <a href="#hero" class="brand-logo" aria-label="Coffee Co. Home">
+          <div class="logo-mark" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 8h1a4 4 0 1 1 0 8h-1"/>
+              <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/>
+              <line x1="6" y1="2" x2="6" y2="4"/>
+              <line x1="10" y1="2" x2="10" y2="4"/>
+              <line x1="14" y1="2" x2="14" y2="4"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="brand-name">COFFEE CO.</span>
+            <span class="brand-tag">FUEL YOUR DAY</span>
+          </div>
+        </a>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <!-- Theme Switcher Button -->
+          <button type="button" id="theme-toggle-btn" class="icon-btn" aria-label="Toggle dark and light roast theme" title="Toggle theme">
+            <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>
+            </svg>
+            <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+            </svg>
+          </button>
+
+          <!-- Cart Drawer Toggle -->
+          <button type="button" id="cart-drawer-trigger" class="icon-btn cart-btn" aria-label="View shopping bag" aria-haspopup="dialog">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>
+            </svg>
+            <span id="cart-count-badge" class="cart-badge" aria-label="0 items in cart">0</span>
+          </button>
+
+          <!-- Mobile Menu Trigger -->
+          <button type="button" id="mobile-nav-toggle" class="icon-btn menu-btn" aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+            <span class="hamburger-line" aria-hidden="true"></span>
+            <span class="hamburger-line" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Navigation Drawer (Slide-down) -->
+      <nav id="mobile-nav-drawer" class="mobile-nav" aria-label="Mobile Navigation" hidden>
+        <ul class="nav-links-list">
+          <li><a href="#hero" class="nav-link">🔥 Home / Watch Reel</a></li>
+          <li><a href="#featured-roasts" class="nav-link">☕ Signature Roasts</a></li>
+          <li><a href="#bean-to-cup" class="nav-link">🌱 Bean to Cup Story</a></li>
+          <li><a href="#brew-calculator" class="nav-link">⚖️ Barista Calculator</a></li>
+          <li><a href="#fuel-club" class="nav-link">📦 Fuel Club Subscription</a></li>
+          <li><a href="#customer-reviews" class="nav-link">⭐ Reviews &amp; Tasting</a></li>
+          <li><a href="#cafe-pickup" class="nav-link">📍 Cafe Pickup Locations</a></li>
+        </ul>
+        <div class="nav-footer">
+          <div class="nav-contact-pill">
+            <span>Call us: (800) 555-COFF</span>
+            <span>Roastery: Brooklyn, NY</span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="site-main">
+
+      <!-- SECTION 1: HERO WITH VIDEO REEL -->
+      <section id="hero" class="hero-section" aria-labelledby="hero-heading">
+        <div class="hero-media-wrapper">
+          <!-- The Main Video Highlight -->
+          <figure class="hero-video-container" id="hero-video-box">
+            <video 
+              id="coffee-reel-video" 
+              class="hero-video" 
+              src="assets/coffee_reel.mp4" 
+              poster="assets/coffee_craft.jpg"
+              autoplay 
+              loop 
+              muted 
+              playsinline
+              preload="metadata"
+              aria-label="High energy Coffee Co video showing coffee beans, rich espresso splashes, and rocket cup animation">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption class="sr-only">Coffee Co promotional video highlighting rich and bold artisanal roasts.</figcaption>
+            
+            <!-- Video Overlay Badges & Gradient -->
+            <div class="video-overlay-gradient"></div>
+
+            <!-- Video Floating Pill Tags -->
+            <div class="video-floating-tags" aria-hidden="true">
+              <span class="reel-pill"><span class="pulse-dot"></span> 4K Ultra HD</span>
+              <span class="reel-pill">100% Arabica</span>
+            </div>
+
+            <!-- Subtle Top-Right Sound Toggle Button -->
+            <button type="button" id="video-audio-toggle-btn" class="video-sound-btn" aria-label="Unmute audio" title="Toggle audio">
+              <svg class="icon-muted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+              </svg>
+              <svg class="icon-unmuted" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none" aria-hidden="true">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+              </svg>
+            </button>
+
+
+            <!-- Video Keyframe Bookmark Navigator -->
+            <div class="reel-jump-pills" role="tablist" aria-label="Video moments">
+              <button type="button" class="jump-pill active" data-time="0" role="tab" aria-selected="true">⚡ Fuel Day</button>
+              <button type="button" class="jump-pill" data-time="2" role="tab" aria-selected="false">🚀 Daily Grind</button>
+              <button type="button" class="jump-pill" data-time="3.5" role="tab" aria-selected="false">💧 Rich &amp; Bold</button>
+              <button type="button" class="jump-pill" data-time="5.5" role="tab" aria-selected="false">🌱 Premium Beans</button>
+              <button type="button" class="jump-pill" data-time="7" role="tab" aria-selected="false">🔥 Expert Roast</button>
+            </div>
+          </figure>
+        </div>
+
+        <!-- Hero Content Card Below Video -->
+        <div class="hero-content-card">
+          <div class="hero-chip">
+            <span class="chip-flame">🔥</span>
+            <span>ARTISAN SMALL-BATCH COFFEE</span>
+          </div>
+          <h1 id="hero-heading" class="hero-title">
+            FUEL YOUR <span class="text-gradient">DAILY GRIND</span>
+          </h1>
+          <p class="hero-subtitle">
+            Experience pure, rich, bold flavor in every single drop. Ethically sourced high-altitude beans, precision roasted within 48 hours of dispatch.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#featured-roasts" class="btn btn-primary" id="hero-order-cta">
+              <span>Order Fresh Beans</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+            <a href="#brew-calculator" class="btn btn-secondary" id="hero-calc-cta">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
+              <span>Brew Guide</span>
+            </a>
+          </div>
+
+          <!-- Trust Badges Grid -->
+          <ul class="trust-metrics-grid" aria-label="Coffee Co. Quality Metrics">
+            <li class="metric-item">
+              <span class="metric-val">48h</span>
+              <span class="metric-lbl">Roast-to-Cup</span>
+            </li>
+            <li class="metric-item">
+              <span class="metric-val">100%</span>
+              <span class="metric-lbl">Direct Trade</span>
+            </li>
+            <li class="metric-item">
+              <span class="metric-val">4.9★</span>
+              <span class="metric-lbl">12.4k Reviews</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION 2: SIGNATURE ROASTS CATALOG -->
+      <section id="featured-roasts" class="section-roasts" aria-labelledby="roasts-heading">
+        <div class="section-header">
+          <div class="section-badge">FRESH BATCHES</div>
+          <h2 id="roasts-heading" class="section-title">Signature Blends</h2>
+          <p class="section-desc">Handcrafted profiles roasted to extract vibrant sweetness and velvety crema.</p>
+        </div>
+
+        <!-- Filter Pills Bar -->
+        <div class="roast-filters-container" role="tablist" aria-label="Filter roasts by roast type">
+          <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All (4)</button>
+          <button type="button" class="filter-btn" data-filter="dark" role="tab" aria-selected="false">Dark &amp; Bold</button>
+          <button type="button" class="filter-btn" data-filter="medium" role="tab" aria-selected="false">Medium Gold</button>
+          <button type="button" class="filter-btn" data-filter="espresso" role="tab" aria-selected="false">Espresso Blend</button>
+          <button type="button" class="filter-btn" data-filter="coldbrew" role="tab" aria-selected="false">Cold Brew</button>
+        </div>
+
+        <!-- Products List (Mobile Cards) -->
+        <div class="roasts-grid" id="roasts-product-list">
+          
+          <!-- PRODUCT 1: MIDNIGHT VELVET DARK ROAST -->
+          <article class="roast-card" data-category="dark" data-id="midnight-velvet">
+            <div class="card-media-wrap">
+              <img 
+                src="assets/coffee_dark_roast.jpg" 
+                alt="Coffee Co. Midnight Velvet Dark Roast Coffee Bag surrounded by chocolate and whole beans" 
+                class="card-img" 
+                loading="lazy">
+              <span class="card-badge bold-badge">DARK ROAST</span>
+              <span class="intensity-indicator" title="Intensity 9 out of 10">
+                <span class="intensity-label">Intensity:</span> <strong>9/10</strong>
+              </span>
+            </div>
+
+            <div class="card-content">
+              <div class="card-headline">
+                <h3 class="product-title">Midnight Velvet</h3>
+                <span class="product-price">$18.50</span>
+              </div>
+              <p class="product-flavor-notes">
+                <span class="note-pill">Dark Chocolate</span>
+                <span class="note-pill">Smoky Caramel</span>
+                <span class="note-pill">Black Cherry</span>
+              </p>
+              <p class="product-summary">
+                Heavy-bodied, French-style roast with deep cocoa resonance and a lingering, velvety molasses finish.
+              </p>
+
+              <!-- Grind Selection Form -->
+              <div class="grind-selection-box">
+                <label for="grind-select-1" class="grind-label">Choose Grind:</label>
+                <select id="grind-select-1" class="grind-select" data-product="midnight-velvet">
+                  <option value="Whole Bean">Whole Bean (Max Freshness)</option>
+                  <option value="French Press">Coarse (French Press / Cold Brew)</option>
+                  <option value="Drip / Chemex">Medium (Drip / Chemex / V60)</option>
+                  <option value="Fine Espresso">Fine (Espresso / Moka Pot)</option>
+                </select>
+              </div>
+
+              <!-- Card Action Buttons -->
+              <div class="card-actions">
+                <button type="button" class="btn btn-add-cart" data-id="midnight-velvet" data-name="Midnight Velvet Dark Roast" data-price="18.50" data-img="assets/coffee_dark_roast.jpg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                  <span>Add to Bag</span>
+                </button>
+                <button type="button" class="btn btn-quick-view" data-id="midnight-velvet" aria-label="Quick view details for Midnight Velvet">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 2: GOLDEN DAWN MEDIUM ROAST -->
+          <article class="roast-card" data-category="medium" data-id="golden-dawn">
+            <div class="card-media-wrap">
+              <img 
+                src="assets/coffee_medium_roast.jpg" 
+                alt="Coffee Co. Golden Dawn Medium Roast Coffee Bag on sunlit table with honey and hazelnut" 
+                class="card-img" 
+                loading="lazy">
+              <span class="card-badge gold-badge">MEDIUM ROAST</span>
+              <span class="intensity-indicator" title="Intensity 6 out of 10">
+                <span class="intensity-label">Intensity:</span> <strong>6/10</strong>
+              </span>
+            </div>
+
+            <div class="card-content">
+              <div class="card-headline">
+                <h3 class="product-title">Golden Dawn</h3>
+                <span class="product-price">$17.00</span>
+              </div>
+              <p class="product-flavor-notes">
+                <span class="note-pill">Wild Honey</span>
+                <span class="note-pill">Toasted Hazelnut</span>
+                <span class="note-pill">Citrus Bloom</span>
+              </p>
+              <p class="product-summary">
+                Sun-drenched morning brew with balanced acidity, floral top notes, and a silky honeycomb sweet finish.
+              </p>
+
+              <!-- Grind Selection Form -->
+              <div class="grind-selection-box">
+                <label for="grind-select-2" class="grind-label">Choose Grind:</label>
+                <select id="grind-select-2" class="grind-select" data-product="golden-dawn">
+                  <option value="Whole Bean">Whole Bean (Max Freshness)</option>
+                  <option value="French Press">Coarse (French Press / Cold Brew)</option>
+                  <option value="Drip / Chemex" selected>Medium (Drip / Chemex / V60)</option>
+                  <option value="Fine Espresso">Fine (Espresso / Moka Pot)</option>
+                </select>
+              </div>
+
+              <!-- Card Action Buttons -->
+              <div class="card-actions">
+                <button type="button" class="btn btn-add-cart" data-id="golden-dawn" data-name="Golden Dawn Medium Roast" data-price="17.00" data-img="assets/coffee_medium_roast.jpg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                  <span>Add to Bag</span>
+                </button>
+                <button type="button" class="btn btn-quick-view" data-id="golden-dawn" aria-label="Quick view details for Golden Dawn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 3: ROCKET FUEL ESPRESSO BLEND -->
+          <article class="roast-card" data-category="espresso" data-id="rocket-fuel">
+            <div class="card-media-wrap">
+              <img 
+                src="assets/coffee_espresso.jpg" 
+                alt="Coffee Co. Rocket Fuel Espresso Blend Coffee Bag beside freshly pulled espresso shot with thick golden crema" 
+                class="card-img" 
+                loading="lazy">
+              <span class="card-badge bold-badge">SIGNATURE ESPRESSO</span>
+              <span class="intensity-indicator" title="Intensity 10 out of 10">
+                <span class="intensity-label">Intensity:</span> <strong>10/10</strong>
+              </span>
+            </div>
+
+            <div class="card-content">
+              <div class="card-headline">
+                <h3 class="product-title">Rocket Fuel</h3>
+                <span class="product-price">$19.00</span>
+              </div>
+              <p class="product-flavor-notes">
+                <span class="note-pill">Golden Crema</span>
+                <span class="note-pill">Cocoa Nibs</span>
+                <span class="note-pill">Warm Nutmeg</span>
+              </p>
+              <p class="product-summary">
+                Directly inspired by our video showcase: explosive espresso power engineered for dense crema and peak daily focus.
+              </p>
+
+              <!-- Grind Selection Form -->
+              <div class="grind-selection-box">
+                <label for="grind-select-3" class="grind-label">Choose Grind:</label>
+                <select id="grind-select-3" class="grind-select" data-product="rocket-fuel">
+                  <option value="Whole Bean">Whole Bean (Max Freshness)</option>
+                  <option value="Fine Espresso" selected>Fine (Espresso / Moka Pot)</option>
+                  <option value="Drip / Chemex">Medium (Drip / Chemex / V60)</option>
+                  <option value="French Press">Coarse (French Press / Cold Brew)</option>
+                </select>
+              </div>
+
+              <!-- Card Action Buttons -->
+              <div class="card-actions">
+                <button type="button" class="btn btn-add-cart" data-id="rocket-fuel" data-name="Rocket Fuel Espresso Blend" data-price="19.00" data-img="assets/coffee_espresso.jpg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                  <span>Add to Bag</span>
+                </button>
+                <button type="button" class="btn btn-quick-view" data-id="rocket-fuel" aria-label="Quick view details for Rocket Fuel">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCT 4: NITRO SILK COLD BREW -->
+          <article class="roast-card" data-category="coldbrew" data-id="nitro-silk">
+            <div class="card-media-wrap">
+              <img 
+                src="assets/coffee_cold_brew.jpg" 
+                alt="Coffee Co. Nitro Silk Cold Brew bottle and ribbed glass with iced latte swirl" 
+                class="card-img" 
+                loading="lazy">
+              <span class="card-badge chill-badge">COLD BREW RESERVE</span>
+              <span class="intensity-indicator" title="Intensity 7 out of 10">
+                <span class="intensity-label">Intensity:</span> <strong>7/10</strong>
+              </span>
+            </div>
+
+            <div class="card-content">
+              <div class="card-headline">
+                <h3 class="product-title">Nitro Silk</h3>
+                <span class="product-price">$16.50</span>
+              </div>
+              <p class="product-flavor-notes">
+                <span class="note-pill">Bourbon Vanilla</span>
+                <span class="note-pill">Sub-Zero Smooth</span>
+                <span class="note-pill">Low Acidity</span>
+              </p>
+              <p class="product-summary">
+                Steeped cold for 20 hours. Ultra velvety body with natural vanilla undertones and zero harsh bitterness.
+              </p>
+
+              <!-- Grind Selection Form -->
+              <div class="grind-selection-box">
+                <label for="grind-select-4" class="grind-label">Choose Grind:</label>
+                <select id="grind-select-4" class="grind-select" data-product="nitro-silk">
+                  <option value="French Press" selected>Coarse (Cold Brew Steep Pack)</option>
+                  <option value="Whole Bean">Whole Bean (Grind at Home)</option>
+                </select>
+              </div>
+
+              <!-- Card Action Buttons -->
+              <div class="card-actions">
+                <button type="button" class="btn btn-add-cart" data-id="nitro-silk" data-name="Nitro Silk Cold Brew" data-price="16.50" data-img="assets/coffee_cold_brew.jpg">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+                  <span>Add to Bag</span>
+                </button>
+                <button type="button" class="btn btn-quick-view" data-id="nitro-silk" aria-label="Quick view details for Nitro Silk">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- SECTION 3: THE BEAN TO CUP STORY (Direct video tie-in) -->
+      <section id="bean-to-cup" class="section-story" aria-labelledby="story-heading">
+        <div class="section-header">
+          <div class="section-badge">OUR CRAFT</div>
+          <h2 id="story-heading" class="section-title">The Three Pillars of Flavor</h2>
+          <p class="section-desc">Straight from our video reel: how we turn raw mountain cherries into liquid gold.</p>
+        </div>
+
+        <div class="story-banner-wrap">
+          <img src="assets/coffee_craft.jpg" alt="Master barista pouring hot water in spiral over blooming coffee bed" class="story-hero-img" loading="lazy">
+          <div class="story-banner-content">
+            <span class="banner-subtitle">SMALL BATCH PASSION</span>
+            <h3 class="banner-title">Crafted with millisecond precision</h3>
+          </div>
+        </div>
+
+        <div class="story-pillars-grid">
+          <!-- Pillar 1 -->
+          <article class="pillar-card">
+            <div class="pillar-number" aria-hidden="true">01</div>
+            <div class="pillar-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2a9 9 0 0 1 9 9c0 4.97-4.03 9-9 9s-9-4.03-9-9a9 9 0 0 1 9-9Z"/>
+                <path d="M12 2v20"/><path d="M2 12h20"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Responsibly Sourced</h3>
+            <p class="pillar-text">
+              We partner directly with sustainable high-elevation micro-lot farmers in Colombia, Ethiopia, and Guatemala, paying 45% above Fair Trade baselines.
+            </p>
+          </article>
+
+          <!-- Pillar 2 -->
+          <article class="pillar-card">
+            <div class="pillar-number" aria-hidden="true">02</div>
+            <div class="pillar-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Expertly Roasted</h3>
+            <p class="pillar-text">
+              Fired in vintage cast-iron drum roasters. Every profile is custom calibrated to maximize natural caramelization without astringent char.
+            </p>
+          </article>
+
+          <!-- Pillar 3 -->
+          <article class="pillar-card">
+            <div class="pillar-number" aria-hidden="true">03</div>
+            <div class="pillar-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Pure, Rich &amp; Bold</h3>
+            <p class="pillar-text">
+              Nitrogen-flushed within 120 seconds of roasting to preserve over 800 volatile aromatic compounds until you open the bag.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 4: INTERACTIVE BARISTA BREW CALCULATOR -->
+      <section id="brew-calculator" class="section-calculator" aria-labelledby="calc-heading">
+        <div class="section-header">
+          <div class="section-badge">INTERACTIVE TOOL</div>
+          <h2 id="calc-heading" class="section-title">Barista Brew Calculator</h2>
+          <p class="section-desc">Dial in your grind ratio, water temperature, and brew time for coffee perfection.</p>
+        </div>
+
+        <div class="calculator-card">
+          <!-- Step 1: Select Method -->
+          <fieldset class="calc-fieldset">
+            <legend class="calc-label">1. Choose Brewing Method:</legend>
+            <div class="method-selector-grid" role="radiogroup" aria-label="Brewing method">
+              <label class="method-card active" data-method="pourover">
+                <input type="radio" name="brew-method" value="pourover" checked class="sr-only">
+                <span class="method-icon">☕</span>
+                <span class="method-name">Pour Over</span>
+                <span class="method-ratio">1:16 Ratio</span>
+              </label>
+
+              <label class="method-card" data-method="frenchpress">
+                <input type="radio" name="brew-method" value="frenchpress" class="sr-only">
+                <span class="method-icon">🫖</span>
+                <span class="method-name">French Press</span>
+                <span class="method-ratio">1:15 Ratio</span>
+              </label>
+
+              <label class="method-card" data-method="espresso">
+                <input type="radio" name="brew-method" value="espresso" class="sr-only">
+                <span class="method-icon">🚀</span>
+                <span class="method-name">Espresso</span>
+                <span class="method-ratio">1:2 Ratio</span>
+              </label>
+
+              <label class="method-card" data-method="coldbrew">
+                <input type="radio" name="brew-method" value="coldbrew" class="sr-only">
+                <span class="method-icon">🧊</span>
+                <span class="method-name">Cold Brew</span>
+                <span class="method-ratio">1:8 Ratio</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- Step 2: Cups Slider -->
+          <div class="calc-slider-box">
+            <div class="slider-header">
+              <label for="cups-range" class="calc-label">2. Desired Cups:</label>
+              <span id="cups-display" class="slider-val-badge">2 Cups (500 ml)</span>
+            </div>
+            <input type="range" id="cups-range" min="1" max="6" value="2" step="1" class="calc-range" aria-label="Number of cups to brew">
+          </div>
+
+          <!-- Step 3: Strength Preference -->
+          <div class="calc-slider-box">
+            <div class="slider-header">
+              <label for="strength-select" class="calc-label">3. Strength Profile:</label>
+              <span id="strength-display" class="slider-val-badge">Golden Balance</span>
+            </div>
+            <select id="strength-select" class="grind-select">
+              <option value="light">Mellow &amp; Bright (1:17)</option>
+              <option value="balanced" selected>Golden Balance (1:16)</option>
+              <option value="bold">Rich &amp; Bold (1:14)</option>
+            </select>
+          </div>
+
+          <!-- Real-Time Brew Calculation Results Card -->
+          <div class="calc-results-display" aria-live="polite">
+            <div class="result-tile">
+              <span class="result-label">COFFEE BEANS</span>
+              <span class="result-value" id="res-coffee-weight">31.2 <abbr title="grams">g</abbr></span>
+              <span class="result-hint">Coarse-Medium Grind</span>
+            </div>
+            <div class="result-tile">
+              <span class="result-label">WATER WEIGHT</span>
+              <span class="result-value" id="res-water-weight">500 <abbr title="milliliters">ml</abbr></span>
+              <span class="result-hint">At 202°F (94°C)</span>
+            </div>
+            <div class="result-tile">
+              <span class="result-label">TARGET TIME</span>
+              <span class="result-value" id="res-target-time">3:30</span>
+              <span class="result-hint">Bloom 45s first</span>
+            </div>
+          </div>
+
+          <!-- Interactive Barista Brew Stopwatch -->
+          <div class="barista-timer-box">
+            <div class="timer-display">
+              <span id="timer-clock">00:00</span>
+              <span id="timer-phase" class="timer-phase-badge">Ready to Bloom</span>
+            </div>
+            <div class="timer-actions">
+              <button type="button" id="btn-timer-start" class="btn btn-timer-primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                <span>Start Timer</span>
+              </button>
+              <button type="button" id="btn-timer-reset" class="btn btn-timer-secondary" disabled>
+                <span>Reset</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: THE FUEL CLUB (SUBSCRIPTION) -->
+      <section id="fuel-club" class="section-subscription" aria-labelledby="sub-heading">
+        <div class="subscription-card">
+          <div class="sub-badge">NEVER RUN OUT</div>
+          <h2 id="sub-heading" class="sub-title">Join The Fuel Club</h2>
+          <p class="sub-description">
+            Your customized artisan roast delivered fresh to your doorstep automatically. Switch, pause, or cancel with one tap anytime.
+          </p>
+
+          <ul class="sub-perks-list">
+            <li class="perk-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Save 15%</strong> on every bag for life</span>
+            </li>
+            <li class="perk-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Free Ceramic Travel Mug</strong> with your 1st order</span>
+            </li>
+            <li class="perk-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>Free Priority Shipping</strong> on all recurring boxes</span>
+            </li>
+          </ul>
+
+          <div class="frequency-toggle-box">
+            <label class="frequency-option active">
+              <input type="radio" name="sub-frequency" value="2weeks" checked class="sr-only">
+              <span class="freq-title">Every 2 Weeks</span>
+              <span class="freq-tag">Most Popular</span>
+            </label>
+            <label class="frequency-option">
+              <input type="radio" name="sub-frequency" value="4weeks" class="sr-only">
+              <span class="freq-title">Every 4 Weeks</span>
+              <span class="freq-tag">Casual Sipper</span>
+            </label>
+          </div>
+
+          <button type="button" id="btn-subscribe-cta" class="btn btn-primary btn-full-width">
+            <span>Subscribe &amp; Save 15%</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- SECTION 6: VERIFIED CUSTOMER REVIEWS & TASTING -->
+      <section id="customer-reviews" class="section-reviews" aria-labelledby="reviews-heading">
+        <div class="section-header">
+          <div class="section-badge">COMMUNITY LOVE</div>
+          <h2 id="reviews-heading" class="section-title">Tested by Daily Grinders</h2>
+          <p class="section-desc">Over 12,400+ five-star brews served. Here is what real coffee lovers taste.</p>
+        </div>
+
+        <div class="reviews-slider-track">
+          <!-- Review 1 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="review-quote">
+              “The Rocket Fuel blend has replaced my pre-workout and coffee shop runs. The crema is unreal and zero crash.”
+            </blockquote>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar" aria-hidden="true">MK</div>
+              <div class="reviewer-info">
+                <span class="reviewer-name">Marcus K.</span>
+                <span class="reviewer-status">Verified Buyer • Austin, TX</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Review 2 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="review-quote">
+              “Midnight Velvet is truly rich and bold without the bitter burnt taste most dark roasts have. Smells like dark chocolate heaven.”
+            </blockquote>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar" aria-hidden="true">SL</div>
+              <div class="reviewer-info">
+                <span class="reviewer-name">Sarah L.</span>
+                <span class="reviewer-status">Verified Buyer • Seattle, WA</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Review 3 -->
+          <article class="review-card">
+            <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <blockquote class="review-quote">
+              “The video drew me in and the coffee kept me for life. Customer service is incredible and beans arrived 2 days after roasting!”
+            </blockquote>
+            <div class="reviewer-meta">
+              <div class="reviewer-avatar" aria-hidden="true">DR</div>
+              <div class="reviewer-info">
+                <span class="reviewer-name">David R.</span>
+                <span class="reviewer-status">Verified Buyer • Chicago, IL</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 7: ROASTERY LOCATIONS & PICKUP -->
+      <section id="cafe-pickup" class="section-pickup" aria-labelledby="pickup-heading">
+        <div class="section-header">
+          <div class="section-badge">SPEEDY PICKUP</div>
+          <h2 id="pickup-heading" class="section-title">Order Ahead at Our Cafes</h2>
+          <p class="section-desc">Skip the morning line. Pick up freshly brewed espresso or bag of whole beans.</p>
+        </div>
+
+        <div class="locations-list">
+          <article class="location-item active-location">
+            <div class="location-header">
+              <h3 class="location-name">DUMBO Flagship Roastery</h3>
+              <span class="location-status-badge">⚡ 3 Min Wait</span>
+            </div>
+            <p class="location-address">45 Water Street, Brooklyn, NY 11201</p>
+            <div class="location-actions">
+              <button type="button" class="btn btn-outline-sm btn-pickup-select" data-location="DUMBO Flagship Roastery">Select for Pickup</button>
+              <a href="https://maps.google.com" target="_blank" rel="noopener" class="location-map-link">Directions ↗</a>
+            </div>
+          </article>
+
+          <article class="location-item">
+            <div class="location-header">
+              <h3 class="location-name">SoHo Coffee Bar</h3>
+              <span class="location-status-badge">⚡ 6 Min Wait</span>
+            </div>
+            <p class="location-address">412 West Broadway, New York, NY 10012</p>
+            <div class="location-actions">
+              <button type="button" class="btn btn-outline-sm btn-pickup-select" data-location="SoHo Coffee Bar">Select for Pickup</button>
+              <a href="https://maps.google.com" target="_blank" rel="noopener" class="location-map-link">Directions ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 8: FAQ ACCORDION -->
+      <section id="faq-section" class="section-faq" aria-labelledby="faq-heading">
+        <div class="section-header">
+          <div class="section-badge">HELP &amp; ADVICE</div>
+          <h2 id="faq-heading" class="section-title">Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">When were my coffee beans roasted?</summary>
+            <div class="faq-answer">
+              <p>Every single bag of Coffee Co. is stamped with its exact roast date. We never warehouse roasted beans; your order is roasted to order and leaves our facility within 48 hours.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">What grind should I choose for an AeroPress or Pour Over?</summary>
+            <div class="faq-answer">
+              <p>Select our "Medium (Drip / Chemex / V60)" option for AeroPress, Chemex, and V60. If you prefer high extraction and intense body, choose "Fine Espresso".</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Can I pause or skip my Fuel Club subscription?</summary>
+            <div class="faq-answer">
+              <p>Yes! You can skip upcoming deliveries, change your preferred roast, swap grind sizes, or cancel directly from your mobile dashboard with no penalties.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- SECTION 9: NEWSLETTER / VIP DROP -->
+      <section class="section-newsletter" aria-labelledby="news-heading">
+        <div class="newsletter-card">
+          <div class="newsletter-icon" aria-hidden="true">📬</div>
+          <h2 id="news-heading" class="news-title">Get 10% Off Your First Order</h2>
+          <p class="news-subtitle">Sign up for secret single-origin drops, roast schedules, and barista recipes.</p>
+          
+          <form id="newsletter-form" class="newsletter-form" novalidate>
+            <div class="input-group">
+              <label for="newsletter-email" class="sr-only">Email address</label>
+              <input type="email" id="newsletter-email" name="email" required placeholder="Enter your email..." class="news-input">
+              <button type="submit" class="btn btn-primary btn-submit">
+                <span>Join</span>
+              </button>
+            </div>
+            <p id="newsletter-msg" class="form-feedback" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Semantic Footer -->
+    <footer class="site-footer" id="site-footer">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-logo">COFFEE CO.</span>
+          <p class="footer-tagline">Fuel Your Daily Grind with the Best.</p>
+        </div>
+
+        <!-- Accessible Preference Toggles in Footer -->
+        <div class="footer-preferences">
+          <label class="pref-toggle-label">
+            <input type="checkbox" id="reduce-motion-checkbox" class="sr-only">
+            <span class="custom-toggle" aria-hidden="true"></span>
+            <span>Reduce Animations</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="footer-links-grid">
+        <div class="footer-col">
+          <h3 class="footer-col-title">Shop</h3>
+          <ul class="footer-links">
+            <li><a href="#featured-roasts">Midnight Velvet Dark</a></li>
+            <li><a href="#featured-roasts">Golden Dawn Medium</a></li>
+            <li><a href="#featured-roasts">Rocket Fuel Espresso</a></li>
+            <li><a href="#featured-roasts">Nitro Silk Cold Brew</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-col-title">Company</h3>
+          <ul class="footer-links">
+            <li><a href="#bean-to-cup">Our Roasting Story</a></li>
+            <li><a href="#cafe-pickup">Find a Cafe</a></li>
+            <li><a href="#fuel-club">Fuel Club Membership</a></li>
+            <li><a href="#brew-calculator">Barista Brew Ratio</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright">&copy; 2026 Coffee Co. Roasters LLC. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#privacy">Privacy</a>
+          <a href="#terms">Terms</a>
+          <a href="#accessibility">Accessibility</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- STICKY MOBILE BOTTOM BAR (Thumb Navigation) -->
+    <aside class="mobile-sticky-bottom-bar" aria-label="Quick mobile thumb navigation">
+      <a href="#featured-roasts" class="quick-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/></svg>
+        <span>Menu</span>
+      </a>
+      <a href="#brew-calculator" class="quick-nav-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/></svg>
+        <span>Calculate</span>
+      </a>
+      <button type="button" class="quick-nav-item quick-cart-btn" id="sticky-bar-cart-btn" aria-label="View Shopping Cart">
+        <div class="quick-cart-icon-wrap">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="badge-dot" id="sticky-cart-dot"></span>
+        </div>
+        <span id="sticky-cart-label">Bag ($0)</span>
+      </button>
+      <button type="button" class="quick-nav-item" id="scroll-to-top-btn" aria-label="Scroll back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+        <span>Top</span>
+      </button>
+    </aside>
+
+    <!-- FLOATING PICTURE-IN-PICTURE VIDEO MINI-PLAYER (Appears when scrolled past hero) -->
+    <aside id="pip-mini-video-player" class="pip-video-container" aria-label="Picture-in-picture video player" hidden>
+      <video id="pip-video" src="assets/coffee_reel.mp4" muted loop playsinline></video>
+      <div class="pip-controls">
+        <button type="button" id="pip-audio-btn" class="pip-btn" aria-label="Unmute mini player video">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/></svg>
+        </button>
+        <button type="button" id="pip-jump-hero-btn" class="pip-btn" aria-label="Scroll back to hero reel">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button type="button" id="pip-close-btn" class="pip-btn" aria-label="Dismiss mini player">✕</button>
+      </div>
+      <span class="pip-badge">Reel</span>
+    </aside>
+
+  </div><!-- End #mobile-viewport -->
+
+  <!-- SLIDE-OVER SHOPPING BAG DRAWER -->
+  <div id="cart-drawer-overlay" class="drawer-overlay" aria-hidden="true"></div>
+  <aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-drawer-title" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-title-group">
+        <h2 id="cart-drawer-title" class="drawer-title">Your Fresh Bag</h2>
+        <span id="drawer-item-count" class="drawer-count-badge">0 items</span>
+      </div>
+      <button type="button" id="close-cart-btn" class="icon-btn" aria-label="Close cart drawer">✕</button>
+    </div>
+
+    <!-- Free Shipping Progress Tracker -->
+    <div class="shipping-progress-box">
+      <div class="shipping-info-row">
+        <span id="shipping-prompt-text">Add $35.00 for FREE Roastery Shipping</span>
+        <span id="shipping-percent-text">0%</span>
+      </div>
+      <div class="shipping-track">
+        <div id="shipping-progress-bar" class="shipping-fill" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scrollable List -->
+    <div id="cart-items-container" class="cart-items-list" tabindex="0" aria-label="Shopping bag items">
+      <!-- Empty state injected by JS or items rendered -->
+      <div class="cart-empty-state">
+        <div class="empty-icon">☕</div>
+        <p class="empty-text">Your bag is empty.</p>
+        <p class="empty-subtext">Add some fresh roasted beans to fuel your daily grind!</p>
+        <a href="#featured-roasts" class="btn btn-secondary btn-sm" id="btn-empty-shop">Browse Roasts</a>
+      </div>
+    </div>
+
+    <!-- Cart Footer with Pricing & Checkout -->
+    <div class="cart-footer">
+      <!-- Promo code toggle -->
+      <details class="promo-accordion">
+        <summary class="promo-summary">Have a Promo Code?</summary>
+        <div class="promo-input-row">
+          <input type="text" id="promo-code-input" placeholder="Try 'FUEL10' for 10% off" class="promo-input" aria-label="Enter promo code">
+          <button type="button" id="apply-promo-btn" class="btn btn-sm btn-outline-sm">Apply</button>
+        </div>
+        <p id="promo-feedback-msg" class="promo-feedback" aria-live="polite"></p>
+      </details>
+
+      <div class="cart-pricing-breakdown">
+        <div class="price-row">
+          <span>Subtotal</span>
+          <span id="cart-subtotal-val">$0.00</span>
+        </div>
+        <div class="price-row" id="discount-row" style="display:none">
+          <span class="discount-label">Discount (FUEL10)</span>
+          <span id="cart-discount-val" class="discount-val">-$0.00</span>
+        </div>
+        <div class="price-row">
+          <span>Estimated Shipping</span>
+          <span id="cart-shipping-val">Calculated at checkout</span>
+        </div>
+        <div class="price-row total-row">
+          <span>Total</span>
+          <span id="cart-total-val">$0.00</span>
+        </div>
+      </div>
+
+      <button type="button" id="checkout-btn" class="btn btn-primary btn-full-width" disabled>
+        <span>Proceed to Secure Checkout</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+      <p class="checkout-guarantee">🔒 256-Bit Encrypted • 100% Freshness Guarantee</p>
+    </div>
+  </aside>
+
+  <!-- PRODUCT QUICK VIEW MODAL DIALOG -->
+  <dialog id="quick-view-modal" class="custom-modal" aria-labelledby="modal-product-title">
+    <div class="modal-card">
+      <button type="button" id="close-modal-btn" class="icon-btn modal-close-btn" aria-label="Close product details">✕</button>
+      <div class="modal-body" id="modal-body-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </dialog>
+
+  <!-- CHECKOUT SUCCESS MODAL -->
+  <dialog id="checkout-modal" class="custom-modal" aria-labelledby="checkout-modal-title">
+    <div class="modal-card success-card">
+      <div class="success-icon" aria-hidden="true">🎉</div>
+      <h2 id="checkout-modal-title" class="modal-title">Order Placed Successfully!</h2>
+      <p class="modal-desc">
+        Thank you for fueling your day with Coffee Co. Your beans are being queued for small-batch roasting and will ship fresh in 24-48 hours.
+      </p>
+      <div class="order-summary-box" id="checkout-order-summary"></div>
+      <button type="button" id="close-checkout-btn" class="btn btn-primary btn-full-width">Back to Roastery</button>
+    </div>
+  </dialog>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast-container" class="toast-shelf" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
