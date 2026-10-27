@@ -322,8 +322,8 @@ img, video {
   }
 
   .mobile-device-frame.is-mobile-frame .hero-fullscreen {
-    height: calc(100vh - 140px);
-    max-height: 720px;
+    height: calc(100vh - 110px);
+    max-height: 800px;
   }
 }
 
@@ -555,7 +555,7 @@ img, video {
 /* Minimal Action Overlaid Directly on the Video */
 .hero-video-overlay-content {
   position: absolute;
-  bottom: calc(var(--space-2) + 4px);
+  bottom: max(8px, env(safe-area-inset-bottom, 8px));
   left: 0;
   right: 0;
   padding: 0 var(--space-2);
