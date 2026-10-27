@@ -565,72 +565,33 @@ img, video {
   z-index: 2;
 }
 
-/* Minimal Text Overlaid Directly on the Video */
+/* Minimal Action Overlaid Directly on the Video */
 .hero-video-overlay-content {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: var(--space-4) var(--space-3) calc(var(--space-4) + 8px);
+  padding: var(--space-4) var(--space-3) calc(var(--space-4) + 16px);
   z-index: 10;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: var(--space-1);
-}
-
-.hero-video-badge {
-  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background: rgba(224, 169, 109, 0.2);
-  border: 1px solid rgba(224, 169, 109, 0.45);
-  color: var(--accent-gold);
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 2px;
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
-  text-transform: uppercase;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.hero-video-title {
-  font-family: var(--font-display);
-  font-size: clamp(2.2rem, 8vw, 3rem);
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: 0.5px;
-  color: #ffffff;
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.95);
-  margin: 0;
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-video-tagline {
-  font-size: clamp(0.95rem, 3.5vw, 1.15rem);
-  color: rgba(255, 255, 255, 0.92);
-  margin: 0 0 var(--space-1);
-  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.9);
-  font-weight: 500;
+  justify-content: center;
+  pointer-events: none;
 }
 
 .hero-video-cta {
+  pointer-events: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-1);
   width: auto;
-  min-width: 180px;
+  min-width: 200px;
   padding: var(--space-2) var(--space-4);
-  font-size: 0.95rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), var(--shadow-glow);
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), var(--shadow-glow);
 }
 
 /* Primary & Secondary Buttons */
