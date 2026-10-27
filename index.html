@@ -674,8 +674,8 @@
       </div>
     </footer>
 
-    <!-- STICKY MOBILE BOTTOM BAR (Thumb Navigation) -->
-    <aside class="mobile-sticky-bottom-bar" aria-label="Quick mobile thumb navigation">
+    <!-- STICKY MOBILE BOTTOM BAR (Thumb Navigation - Appears after scrolling landing page) -->
+    <aside class="mobile-sticky-bottom-bar" id="mobile-sticky-bottom-bar" aria-label="Quick mobile thumb navigation">
       <a href="#featured-roasts" class="quick-nav-item">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/></svg>
         <span>Menu</span>
@@ -695,18 +695,6 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
         <span>Top</span>
       </button>
-    </aside>
-
-    <!-- FLOATING PICTURE-IN-PICTURE VIDEO MINI-PLAYER (Appears when scrolled past hero) -->
-    <aside id="pip-mini-video-player" class="pip-video-container" aria-label="Picture-in-picture video player" hidden>
-      <video id="pip-video" src="assets/coffee_reel.mp4" muted loop playsinline></video>
-      <div class="pip-controls">
-        <button type="button" id="pip-jump-hero-btn" class="pip-btn" aria-label="Scroll back to hero reel">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
-        </button>
-        <button type="button" id="pip-close-btn" class="pip-btn" aria-label="Dismiss mini player">✕</button>
-      </div>
-      <span class="pip-badge">Reel</span>
     </aside>
 
   </div><!-- End #mobile-viewport -->

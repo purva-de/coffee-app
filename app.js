@@ -112,6 +112,8 @@
   const mobileViewport = document.getElementById('mobile-viewport');
   const reduceMotionCheckbox = document.getElementById('reduce-motion-checkbox');
   const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+  const mobileStickyBottomBar = document.getElementById('mobile-sticky-bottom-bar') || document.querySelector('.mobile-sticky-bottom-bar');
+  const heroSection = document.getElementById('hero');
 
   // --- INITIALIZATION ---
   function init() {
@@ -164,16 +166,29 @@
     }
   }
 
-  // --- SCROLL PROGRESS INDICATOR (Web Guidance) ---
+  // --- SCROLL PROGRESS & BOTTOM BAR VISIBILITY ---
   function initScrollProgress() {
-    window.addEventListener('scroll', () => {
+    function updateScrollState() {
       const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = height > 0 ? winScroll / height : 0;
       if (progressBar) {
         progressBar.style.transform = `scaleX(${scrolled})`;
       }
-    }, { passive: true });
+
+      // Show bottom bar with Menu, Calculate, Bag, Top only after scrolling past the landing page
+      if (mobileStickyBottomBar) {
+        const threshold = heroSection ? (heroSection.offsetHeight * 0.6) : 300;
+        if (winScroll > threshold) {
+          mobileStickyBottomBar.classList.add('is-visible');
+        } else {
+          mobileStickyBottomBar.classList.remove('is-visible');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', updateScrollState, { passive: true });
+    updateScrollState();
   }
 
   // --- VIDEO AUTOPLAY & CONTROLS ---
