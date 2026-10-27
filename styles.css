@@ -555,10 +555,10 @@ img, video {
 /* Minimal Action Overlaid Directly on the Video */
 .hero-video-overlay-content {
   position: absolute;
-  bottom: 0;
+  bottom: calc(var(--space-2) + 4px);
   left: 0;
   right: 0;
-  padding: var(--space-4) var(--space-3) calc(var(--space-4) + 16px);
+  padding: 0 var(--space-2);
   z-index: 10;
   display: flex;
   flex-direction: column;
