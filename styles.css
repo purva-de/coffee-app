@@ -492,19 +492,6 @@ img, video {
   color: var(--accent-gold);
 }
 
-.nav-footer {
-  margin-top: var(--space-3);
-  padding-top: var(--space-2);
-  border-top: 1px solid var(--border-color);
-}
-
-.nav-contact-pill {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
 
 /* --------------------------------------------------------------------------
    8. SECTION 1: HERO FULLSCREEN VIDEO LANDING
@@ -702,7 +689,6 @@ img, video {
 .section-roasts,
 .section-story,
 .section-calculator,
-.section-subscription,
 .section-pickup,
 .section-faq,
 .section-newsletter {
@@ -1239,103 +1225,6 @@ img, video {
   cursor: pointer;
 }
 
-/* --------------------------------------------------------------------------
-   12. SECTION 5: THE FUEL CLUB (SUBSCRIPTION)
-   -------------------------------------------------------------------------- */
-.subscription-card {
-  background: linear-gradient(145deg, #1d1510, #2b1f18);
-  border: 1px solid var(--accent-gold);
-  border-radius: var(--radius-lg);
-  padding: var(--space-3) var(--space-2);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-  box-shadow: var(--shadow-glow);
-}
-
-[data-theme="light"] .subscription-card {
-  background: linear-gradient(145deg, #f7ede0, #fdf6ec);
-}
-
-.sub-badge {
-  display: inline-block;
-  background: var(--accent-amber);
-  color: #ffffff;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  padding: 4px var(--space-1);
-  border-radius: var(--radius-sm);
-  align-self: flex-start;
-}
-
-.sub-title {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 800;
-  color: var(--text-primary);
-}
-
-.sub-description {
-  font-size: 0.88rem;
-  line-height: 1.45;
-  color: var(--text-secondary);
-}
-
-.sub-perks-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.perk-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-1);
-  font-size: 0.85rem;
-  color: var(--text-primary);
-}
-
-.check-icon {
-  color: var(--accent-green);
-  flex-shrink: 0;
-}
-
-.frequency-toggle-box {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-1);
-  margin-top: var(--space-1);
-}
-
-.frequency-option {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: var(--space-1);
-  border-radius: var(--radius-sm);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  cursor: pointer;
-  text-align: center;
-}
-
-.frequency-option.active {
-  background: var(--bg-surface-elevated);
-  border-color: var(--accent-gold);
-}
-
-.freq-title {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.freq-tag {
-  font-size: 0.68rem;
-  color: var(--accent-gold);
-}
 
 
 /* --------------------------------------------------------------------------

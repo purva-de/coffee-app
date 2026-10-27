@@ -352,22 +352,6 @@
       cartOverlay.addEventListener('click', closeCart);
     }
 
-    // Subscribe CTA
-    const subscribeBtn = document.getElementById('btn-subscribe-cta');
-    if (subscribeBtn) {
-      subscribeBtn.addEventListener('click', () => {
-        const freqInput = document.querySelector('input[name="sub-frequency"]:checked');
-        const freq = freqInput ? freqInput.value : '2weeks';
-        addToCart({
-          id: 'fuel-club-sub',
-          name: 'Fuel Club Coffee Membership (Save 15%)',
-          price: 449,
-          img: 'assets/coffee_dark_roast.jpg',
-          grind: `Roaster's Choice (${freq === '2weeks' ? 'Bi-Weekly' : 'Monthly'})`
-        });
-        openCart();
-      });
-    }
 
     // Promo code
     if (applyPromoBtn && promoInput) {
